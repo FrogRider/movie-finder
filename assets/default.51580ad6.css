@@ -1,0 +1,1 @@
+ul .router-link-active{border-bottom:3px solid #2bd24a}.content-zone{background-color:#ccc}.loading{opacity:.8;z-index:1000}.loading:after{animation:rotation 1s linear infinite;aspect-ratio:1/1;border:5px solid #409eff;border-radius:100%;border-top-color:transparent;content:"";height:20vh;left:50%;top:50%}@keyframes rotation{0%{transform:rotate(0)}to{transform:rotate(1turn)}}
