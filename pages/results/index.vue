@@ -20,6 +20,7 @@
 						:style="`background-image: url('${getPoster}')`"
 					></div>
 					<div class="text-center">{{ movie.Year }}</div>
+					<!-- тут мав би бути вказаний продюсер, але API не повертає цієї інформації, продюсер є лише в запиті на конкретний фільм -->
 					<div class="text-center">
 						<NuxtLink :to="`/results/${movie.imdbID}`">
 							<el-button type="primary"> Details </el-button>
@@ -43,14 +44,11 @@
 	import useMoviesStore from '../../store/moviesStore'
 	import { ITEMS_PER_PAGE } from '../../constants'
 
-	// const currentIndex = ref(0)
-
 	const moviesStore = useMoviesStore()
 
 	const { movies, totalResults, currentIndex } = storeToRefs(moviesStore)
 
 	const setItem = (index) => {
-		// .value = index
 		moviesStore.setCurrentIndex(index)
 		if (index % ITEMS_PER_PAGE == ITEMS_PER_PAGE - 2) {
 			moviesStore.getNextPage()
@@ -58,7 +56,6 @@
 	}
 
 	const getPoster = computed(() => {
-		// https://static.thenounproject.com/png/4143644-200.png
 		const currentPoster = movies.value[currentIndex.value]?.Poster
 		return !currentPoster || currentPoster == 'N/A'
 			? 'http://drive.google.com/uc?export=view&id=1futXAfSaeknVeF1sfkZ4fWxyH4eYxeGd'

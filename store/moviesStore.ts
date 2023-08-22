@@ -6,7 +6,7 @@ const useMoviesStore = defineStore('MoviesStore', {
 	state: () => ({
 		isLoading: false,
 		movies: [] as Array<Film>,
-		searchTitle: 'titanic',
+		searchTitle: '',
 		currentPage: 0,
 		currentIndex: 0,
 		totalResults: null as number | null,
@@ -64,14 +64,11 @@ const useMoviesStore = defineStore('MoviesStore', {
 
 				if (!hasData) {
 					this.eraseMovies()
-					// this.setTotalMoviesAmount(data.totalResults)
 					this.setCurrentPage(0)
 					return
 				}
-				console.log(data)
 
 				this.setInitialMovies(data.Search)
-				// this.setTotalMoviesAmount(data.totalResults)
 				this.setCurrentPage(0)
 			})
 			this.hideLoader()

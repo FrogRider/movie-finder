@@ -24,7 +24,6 @@
 </template>
 
 <script setup>
-	// import { getMovieById } from '../../api'
 	import useMoviesStore from '../../store/moviesStore'
 	import { storeToRefs } from 'pinia'
 	import rating from '../../components/rating.vue'
@@ -51,21 +50,4 @@
 	})
 </script>
 
-<style lang="scss" scoped>
-	.rating {
-		position: relative;
-
-		&::after {
-			content: '';
-			position: absolute;
-			background-color: transparent;
-			// filter: grayscale(1);
-			mix-blend-mode: darken;
-			opacity: 0.5;
-			height: 100%;
-			width: 60px;
-			left: 0;
-			top: 0;
-		}
-	}
-</style>
+<style lang="scss" scoped></style>

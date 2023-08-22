@@ -56,7 +56,7 @@
 				@clear="moviesStore.clearState"
 			/>
 		</div>
-		<!-- <div v-if="totalResults">results: {{ totalResults }}</div> -->
+
 		<NuxtLink to="/results">
 			<el-button v-if="totalResults" type="primary" class="mt-[20px]">
 				Show results ({{ totalResults }})
@@ -87,19 +87,11 @@
 		return moviesStore.searchTitle.length >= MIN_INPUT_LENGTH
 	})
 
-	// const getMoviesAmount = computed(() => {
-	// 	return totalResults
-	// })
-
 	const fetchFilms = () => {
 		if (!isSearchEnabled.value) return
 
 		moviesStore.getInitialMovies()
 	}
-
-	watch(title, () => {
-		// handleLoaderStatusUpdate()
-	})
 </script>
 
 <style lang="scss" scoped></style>

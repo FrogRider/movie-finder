@@ -15,7 +15,7 @@ export const getMoviesByTitle = async (title: string): Promise<string> => {
 	return data
 }
 
-export const getMovieById = async (id: string): Promise<string> => {
+export const getMovieById = async (id: string | null): Promise<string> => {
 	const moviesStore = useMoviesStore()
 
 	const { data } = await useFetch<MovieInfo>(
