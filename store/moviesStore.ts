@@ -113,6 +113,7 @@ const useMoviesStore = defineStore('MoviesStore', {
 						statusMessage: `movie with id ${this.curentMovieId} not found`,
 					})
 					this.curentMovieId = null
+					this.hideLoader()
 					return
 				}
 
