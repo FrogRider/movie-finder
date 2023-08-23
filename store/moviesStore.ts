@@ -1,12 +1,12 @@
 import { defineStore } from 'pinia'
-import { Film, MovieInfo, GetMoviesResponse } from '../api/interfaces'
-import { getMoviesByTitle, getMovieById } from '../api'
+import { Film, MovieInfo, GetMoviesResponse } from '@/api/interfaces'
+import { getMoviesByTitle, getMovieById } from '@/api'
 
 const useMoviesStore = defineStore('MoviesStore', {
 	state: () => ({
 		isLoading: false,
 		movies: [] as Array<Film>,
-		searchTitle: '',
+		searchTitle: 'titanic',
 		currentPage: 0,
 		currentIndex: 0,
 		totalResults: null as number | null,
@@ -57,8 +57,8 @@ const useMoviesStore = defineStore('MoviesStore', {
 
 		getInitialMovies(): void {
 			this.showLoader()
-			getMoviesByTitle(this.searchTitle).then((response: GetMoviesResponse) => {
-				const data = JSON.parse(response.value)
+			getMoviesByTitle(this.searchTitle).then((response: string) => {
+				const data = JSON.parse(response)
 				const hasData = !data?.Error
 				this.setTotalMoviesAmount(data.totalResults)
 
@@ -79,8 +79,8 @@ const useMoviesStore = defineStore('MoviesStore', {
 
 			this.currentPage += 1
 
-			getMoviesByTitle(this.searchTitle).then((response: GetMoviesResponse) => {
-				const data = JSON.parse(response.value)
+			getMoviesByTitle(this.searchTitle).then((response: string) => {
+				const data = JSON.parse(response)
 				const hasData = !data?.Error
 
 				if (!hasData) return
@@ -104,7 +104,7 @@ const useMoviesStore = defineStore('MoviesStore', {
 			this.showLoader()
 
 			getMovieById(this.curentMovieId).then((response) => {
-				const data = JSON.parse(response.value)
+				const data = JSON.parse(response)
 				const hasData = !data?.Error
 
 				if (!hasData) {

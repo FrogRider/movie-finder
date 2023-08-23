@@ -10,7 +10,7 @@
 					:style="`transform: translateX(${100 - getRating}%)`"
 				>
 					<svg v-for="i in 10" :key="i" class="icon w-[40px] h-[40px]">
-						<use xlink:href="../assets/images/sprites.svg#star-active" />
+						<use xlink:href="@/assets/images/sprites.svg#star-active" />
 					</svg>
 				</span>
 			</span>
@@ -23,12 +23,12 @@
 					:style="`transform: translateX(-${getRating}%)`"
 				>
 					<svg v-for="i in 10" :key="i" class="icon w-[40px] h-[40px]">
-						<use xlink:href="../assets/images/sprites.svg#star-active" />
+						<use xlink:href="@/assets/images/sprites.svg#star-active" />
 					</svg>
 				</span>
 			</span>
 		</div>
-		<p>{{ props.percentage }}</p>
+		<p>{{ props.percentage }} / 10</p>
 	</div>
 </template>
 

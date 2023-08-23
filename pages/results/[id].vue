@@ -24,18 +24,20 @@
 </template>
 
 <script setup>
-	import useMoviesStore from '../../store/moviesStore'
+	import useMoviesStore from '@/store/moviesStore'
 	import { storeToRefs } from 'pinia'
-	import rating from '../../components/rating.vue'
+	import rating from '@/components/rating.vue'
 
 	const moviesStore = useMoviesStore()
 
 	const { curentMovie } = storeToRefs(moviesStore)
 
 	const getInternetMovieDatabaseRating = computed(() => {
-		return curentMovie.value.Ratings.find(
-			(rating) => rating.Source == 'Internet Movie Database'
-		).Value.split('/')[0]
+		return (
+			curentMovie.value.Ratings.find(
+				(rating) => rating.Source == 'Internet Movie Database'
+			).Value.split('/')[0] || 0
+		)
 	})
 
 	onMounted(() => {

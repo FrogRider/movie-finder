@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-	import useMoviesStore from '../store/moviesStore'
+	import useMoviesStore from '@/store/moviesStore'
 	import { storeToRefs } from 'pinia'
 
 	const moviesStore = useMoviesStore()

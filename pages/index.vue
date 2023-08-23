@@ -66,8 +66,8 @@
 </template>
 
 <script setup>
-	import { MIN_INPUT_LENGTH } from '../constants'
-	import useMoviesStore from '../store/moviesStore'
+	import { MIN_INPUT_LENGTH } from '@/constants'
+	import useMoviesStore from '@/store/moviesStore'
 	import { storeToRefs } from 'pinia'
 
 	const moviesStore = useMoviesStore()

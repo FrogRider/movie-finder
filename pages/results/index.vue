@@ -41,8 +41,8 @@
 
 <script setup>
 	import { storeToRefs } from 'pinia'
-	import useMoviesStore from '../../store/moviesStore'
-	import { ITEMS_PER_PAGE } from '../../constants'
+	import useMoviesStore from '@/store/moviesStore'
+	import { ITEMS_PER_PAGE } from '@/constants'
 
 	const moviesStore = useMoviesStore()
 
