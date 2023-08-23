@@ -6,7 +6,7 @@ const useMoviesStore = defineStore('MoviesStore', {
 	state: () => ({
 		isLoading: false,
 		movies: [] as Array<Film>,
-		searchTitle: 'titanic',
+		searchTitle: '',
 		currentPage: 0,
 		currentIndex: 0,
 		totalResults: null as number | null,
