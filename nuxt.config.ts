@@ -3,6 +3,7 @@ import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
 	buildModules: ['@nuxt/typescript-build'],
+	ssr: false,
 	alias: {
 		'@': resolve(__dirname, './'),
 	},
